@@ -14,24 +14,27 @@ constructor(firstName, lastName) { // ③
 }
 let fullName = new Person("Mario", "Nelson");
 
-console.log(fullName.name());
+//console.log(fullName.name());
 //My name is Mario Nelson
 
-console.log(fullName.whoAreYou());
+//console.log(fullName.whoAreYou());
 // "Hi , My name is Mario Nelson
 //_______________________________________________________
 class Student extends Person { // ①
-   course; // ② 
+   age; // ②
+   jobTitle;
 
-   constructor(firstName, lastName, course) {
+   constructor(firstName, lastName, age, jobTitle) {
        super(firstName, lastName); // ③ 
-        this.course = course;
+        this.age = age;
+        this.jobTitle = jobTitle
    }
 
    whoAreYou() { // ④
-       return  `${super.whoAreYou()} and i'm studying ${this.course}`; // ⑤
+       return  `${super.whoAreYou()} and i'm  ${this.age} years old and I work as a ${this.jobTitle}.`; // ⑤
    }
 }
-let student = new Student("Mario", "Nelson", "Angular 6");
-console.log(student.whoAreYou());
-// Hi i'm Mario Nelson and i'm studying Angular 2
+let student = new Student("Mario", "Nelson", "23", "Developer");
+//console.log(student.whoAreYou());
+document.getElementById("output").innerHTML = student.whoAreYou());
+// Hi i'm Mario Nelson and i'm 23 years old and I work as a Developer
